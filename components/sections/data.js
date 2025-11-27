@@ -4,7 +4,7 @@ export const CONTACT = {
   email: "pritishpanda@yahoo.com",
   location: "Bangalore, India",
   linkedin: "https://www.linkedin.com/in/pritish-panda-12328588",
-  github: "#",
+  github: "https://github.com/HelloUser35/Own_Execution",
 };
 
 export const SKILLS = [

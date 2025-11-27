@@ -121,7 +121,7 @@ html,body,#__next {
 
 .hero-photo-wrapper {
   width: 260px;
-  max-width: 50vw;
+  max-width: 230px;
   border-radius: 1.1rem;
   padding: 6px;
   background: linear-gradient(120deg, var(--glow-a), var(--glow-b), var(--glow-a));
@@ -164,37 +164,34 @@ html,body,#__next {
   animation: flash 1.8s ease-in-out infinite;
 }
 
-
 /* ===============================
    NEON TYPEWRITER EFFECT
 ================================= */
-.typewriter-neon {
-  display: inline-block;
-  overflow: hidden;
-  white-space: nowrap;
-  border-right: 2px solid #f500dd; /* cursor */
-  width: 0; /* start hidden */
-  animation: typing 8s steps(150, end) forwards, blink 0.7s step-end infinite, neonPulse 1.5s ease-in-out infinite alternate;
-  color: #f500dd; /* neon color */
-  text-shadow: none; /* remove shadow */
+.neon-typewriter {
+  color: #f500dd;
+  white-space: wrap;
 }
 
-@keyframes typing {
-  from { width: 0ch; }
-  to { width: 150ch; } /* adjust to match full text length */
+.cursor {
+  display: inline-block;
+  width: 2px;
+  background: #f500dd;
+  animation: blink 0.6s infinite;
 }
 
 @keyframes blink {
-  50% { border-color: transparent; }
+  0%, 50% { opacity: 1; }
+  51%, 100% { opacity: 0; }
 }
 
-@keyframes neonPulse {
-  0% { color: #f500dd; }
-  50% { color: #ff33ee; }
-  100% { color: #f500dd; }
+@keyframes flash {
+  0%, 100% { opacity: 0.2; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.7); }
 }
 
-
+.animate-flash {
+  animation: flash 2s infinite ease-in-out;
+}
 
 /* ===============================
    BUTTONS
@@ -226,6 +223,23 @@ html,body,#__next {
   transition: transform .2s ease, box-shadow .2s ease;
 }
 
+
+@keyframes iconPulse {
+  0% {
+    filter: drop-shadow(0 0 5px #f500dd90);
+  }
+  50% {
+    filter: drop-shadow(0 0 12px #f500ddcc);
+  }
+  100% {
+    filter: drop-shadow(0 0 5px #f500dd90);
+  }
+}
+
+.animate-iconPulse {
+  animation: iconPulse 2.5s infinite ease-in-out;
+}
+
 /* ===============================
    GLASS PANELS & LUX
 ================================= */
@@ -251,48 +265,58 @@ html,body,#__next {
   box-shadow: 0 14px 50px rgba(2,6,23,0.06);
 }
 
+
 /* ===============================
    PROFESSIONAL SUMMARY
    (matches hero gradient)
 ================================= */
 
-.prof-summary-panel {
+/* Wrapper spacing + layout */
+.summary-wrapper {
   position: relative;
-  border-radius: 1.25rem;
-  padding: 2rem;
-  background: linear-gradient(135deg, rgba(168,85,247,0.12), rgba(236,72,153,0.08));
-  backdrop-filter: blur(18px) saturate(140%);
-  -webkit-backdrop-filter: blur(18px) saturate(140%);
-  box-shadow: 0 16px 50px rgba(2,6,23,0.08);
+  align-items: flex-start;
 }
 
-.prof-summary-glow {
-  position: absolute;
-  top: -20%;
-  left: -10%;
-  width: 120%;
-  height: 180%;
-  background: radial-gradient(circle at top right, rgba(168,85,247,0.14), rgba(236,72,153,0.12));
-  filter: blur(60px);
-  z-index: -1;
-  opacity: 0.9;
+/* Neon Accent (left bar) */
+.summary-accent {
+  width: 6px;
+  border-radius: 10px;
+  background: linear-gradient(180deg, #a855f7, #ec4899);
+  box-shadow: 0 0 18px rgba(168,85,247,0.5);
+  animation: glowBar 4s ease-in-out infinite alternate;
 }
 
-.prof-summary-title {
-  font-size: 1.6rem;
+@keyframes glowBar {
+  0% { box-shadow: 0 0 10px rgba(168,85,247,0.4); }
+  100% { box-shadow: 0 0 22px rgba(236,72,153,0.7); }
+}
+
+/* Title */
+.summary-title {
+  font-size: 2rem;
   font-weight: 800;
-  background: linear-gradient(90deg, var(--glow-a), var(--glow-b));
+  background: linear-gradient(90deg, #a855f7, #ec4899);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  display: inline-block;
+  animation: fadeIn 1s ease forwards;
 }
 
-.prof-summary-text {
-  margin-top: .9rem;
-  color: #0f172a;
-  line-height: 1.6;
+/* Light mode text */
+.summary-text {
+  font-size: 1.075rem;
+  line-height: 1.8rem;
+  color: #1e293b;
 }
-.dark .prof-summary-text { color: #d1d5db; }
+
+/* Dark mode text — much better readability */
+.dark .summary-text {
+  color: #e2d4ff !important; /* Luxury lilac glow */
+}
+
+/* Smooth fade-in effect */
+.summary-text, .summary-title {
+  animation: fadeIn 1.2s ease forwards;
+}
 
 /* ===============================
    SKILL BADGES
