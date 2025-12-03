@@ -1,3 +1,4 @@
+import Layout from "../components/Layout";
 import Hero from "../components/sections/Hero";
 import Summary from "../components/sections/Summary";
 import Skills from "../components/sections/Skills";
@@ -7,13 +8,13 @@ import Contact from "../components/sections/Contact";
 
 export default function Home() {
   return (
-    <>
+    <Layout>
       <Hero />
       <Summary />
       <Skills />
       <Experience />
       <Projects />
       <Contact />
-    </>
+    </Layout>
   );
 }
