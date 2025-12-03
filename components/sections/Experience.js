@@ -9,15 +9,24 @@ function ExperienceCompany({ company, role, period, projects }) {
         <h3 className="text-xl font-semibold">{company} <span className="font-normal">— {role}</span></h3>
         <p className="text-sm text-gray-600 dark:text-gray-400 mb-4">{period}</p>
 
-        <div className="grid md:grid-cols-2 gap-4">
-          {projects.map((p, idx) => (
-            <div key={idx} className="bg-glass p-4 rounded-xl">
-              <h4 className="font-semibold mb-2">{p.title}</h4>
-              <div className="flex flex-wrap gap-2 mb-2">{p.tech.map((t,i)=><span key={i} className="tech-badge">{t}</span>)}</div>
-              <ul className="list-disc ml-5 text-sm space-y-1">{p.bullets.map((b, n)=><li key={n}>{b}</li>)}</ul>
+      <div className="grid md:grid-cols-2 gap-4">
+        {projects.map((p, idx) => (
+          <div key={idx} className="bg-glass p-4 rounded-xl">
+            <h4 className="font-semibold mb-2">{p.title}</h4>
+
+            {/* Updated tech badges */}
+            <div className="flex flex-wrap gap-2 mb-2">
+              {p.tech.map((t, i) => (
+                <span key={i} className="exp-tech-aura">{t}</span>
+              ))}
             </div>
-          ))}
-        </div>
+
+            <ul className="list-disc ml-5 text-sm space-y-1">
+              {p.bullets.map((b, n) => <li key={n}>{b}</li>)}
+            </ul>
+          </div>
+        ))}
+      </div>
       </div>
     </div>
   );

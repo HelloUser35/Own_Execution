@@ -24,7 +24,7 @@ function TypewriterText({ text: fullText }) {
   }, [fullText]);
 
 return (
-  <p className="hero-description text-lg leading-relaxed max-w-2xl">
+  <p className="hero-description text-lg leading-relaxed max-w-9xl">
       <span className="neon-typewriter inline-block">{text}</span>
       {!done && <span className="cursor ml-1 dark:bg-[#7c3aed]" />}
   </p>
@@ -53,9 +53,9 @@ export default function Hero() {
       <div className="hero-aurora" aria-hidden />
 
       <div className="container mx-auto px-6 lg:px-20 relative z-10">
-        <div className="grid lg:grid-cols-2 gap-10 items-center">
+        <div className="grid lg:grid-cols-[4fr,2fr] gap-10 items-center">
           <Reveal>
-            <div className="space-y-6">
+            <div className="hero-content space-y-6">
               <h1 className="text-4xl md:text-5xl font-extrabold leading-tight tracking-tight animate-float">
                 <span className="hero-name-gradient">Pritish Panda</span>
               </h1>

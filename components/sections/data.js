@@ -10,7 +10,7 @@ export const CONTACT = {
 export const SKILLS = [
   { title: "Languages & Scripts", items: ["Java", "Python", "Groovy", "Shell", "HTML", "JSON", "XML"] },
   { title: "Automation / Frameworks", items: ["Selenium", "Robot Framework", "BDD", "TestNG", "JMeter", "REST API"] },
-  { title: "DevOps & CI/CD", items: ["Jenkins", "Git", "Gerrit", "Maven", "Docker (basic)"] },
+  { title: "DevOps & CI/CD", items: ["Jenkins", "Git", "Gerrit", "Maven"] },
   { title: "Big Data", items: ["Hadoop", "Hive", "Spark", "SQL"] },
   { title: "OS & Platforms", items: ["Windows", "Linux (RHEL/SLES)", "VMware"] },
   { title: "Tools", items: ["Postman", "SoapUI", "PyCharm", "Eclipse", "Putty", "WinSCP"] },

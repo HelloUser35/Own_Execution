@@ -28,7 +28,7 @@ export default function Navbar() {
             <Link href="#summary" className="nav-premium">Summary</Link>
             <Link href="#skills" className="nav-premium">Skills</Link>
             <Link href="#experience" className="nav-premium">Experience</Link>
-            <Link href="#projects" className="nav-premium">Projects</Link>
+            {/* <Link href="#projects" className="nav-premium">Projects</Link> */}
             <Link href="#contact" className="nav-premium">Contact</Link>
 
             <a

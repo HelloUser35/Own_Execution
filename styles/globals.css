@@ -100,7 +100,7 @@ html, body, #__next {
 
 /* hero image wrapper — smaller by default, premium border */
 .hero-photo-wrapper {
-  width: 200px;
+  width: 240px;
   max-width: 44vw;
   border-radius: 1rem;
   padding: 6px;
@@ -508,8 +508,12 @@ color: #ffffff !important;
    DARK MODE — FULL-PAGE BLACK + PREMIUM TEXT
    OPTION C1
 ============================================ */
-
 /* NAVBAR + HERO PREMIUM UPDATE */
+
+.hero-content {
+max-width: 1520px !important; /* increase from ~550px → wider hero description */
+width: 100%;
+}
 
 /* Navbar soft-gray text in dark mode */
 .nav-premium { color: var(--text-light); font-weight: 600; transition: color .25s ease; }
@@ -624,76 +628,208 @@ color: #ffffff !important;
   text-shadow: 0 0 10px rgba(255,255,255,0.06) !important;
 }
 
-/* --- Glowing Neon Aura for Hero Section (Animated) --- */
-
-
-@keyframes neonPulse {
-0% { opacity: 0.55; filter: blur(70px); transform: scale(1); }
-50% { opacity: 0.95; filter: blur(95px); transform: scale(1.07); }
-100% { opacity: 0.55; filter: blur(70px); transform: scale(1); }
+/* Dark mode contact-card input + textarea fix */
+.dark .contact-card input,
+.dark .contact-card textarea {
+  background: #0a0a0a !important;
+  border: 1px solid rgba(236,72,153,0.55) !important; /* neon maroon border */
+  color: #ffffff !important;
 }
 
+/* --- Glowing Neon Aura for Hero Section (Animated) --- */
+.hero-neon-aura {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: -10;
+  background:
+    radial-gradient(circle at 30% 40%, rgba(236,72,153,0.55), transparent 60%),
+    radial-gradient(circle at 70% 60%, rgba(124,58,237,0.55), transparent 65%),
+    radial-gradient(circle at 50% 80%, rgba(245,0,221,0.45), transparent 70%);
+  filter: blur(80px);
+  opacity: 0.75;
+  animation: neonPulse 6s ease-in-out infinite;
+}
+
+@keyframes neonPulse {
+  0% { opacity: 0.55; filter: blur(70px); transform: scale(1); }
+  50% { opacity: 0.95; filter: blur(95px); transform: scale(1.07); }
+  100% { opacity: 0.55; filter: blur(70px); transform: scale(1); }
+}
 
 /* Dark mode stronger neon */
 .dark .hero-neon-aura {
-opacity: 0.92;
-filter: blur(110px);
+  opacity: 0.92;
+  filter: blur(110px);
 }
-
 
 /* Sparkly glitter-style flashing for hero dots */
 @keyframes sparkleFlash {
-0% { opacity: 0.15; transform: scale(0.85); filter: blur(1px); }
-20% { opacity: 1; transform: scale(1.35); filter: blur(0px); }
-40% { opacity: 0.35; transform: scale(0.9); filter: blur(1px); }
-60% { opacity: 0.9; transform: scale(1.25); filter: blur(0px); }
-100% { opacity: 0.15; transform: scale(0.85); filter: blur(1px); }
+  0% { opacity: 0.15; transform: scale(0.85); filter: blur(1px); }
+  20% { opacity: 1; transform: scale(1.35); filter: blur(0px); }
+  40% { opacity: 0.35; transform: scale(0.9); filter: blur(1px); }
+  60% { opacity: 0.9; transform: scale(1.25); filter: blur(0px); }
+  100% { opacity: 0.15; transform: scale(0.85); filter: blur(1px); }
 }
-
 
 .sparkle-dot {
-animation: sparkleFlash 2.4s ease-in-out infinite;
-animation-delay: calc(var(--i) * 0.32s);
+  animation: sparkleFlash 2.4s ease-in-out infinite;
+  animation-delay: calc(var(--i) * 0.32s);
 }
-
 
 /* Sine‑wave + Sparkle hybrid animation */
 @keyframes sparkleSine {
-0% {
-opacity: 0.25;
-transform: translateY(0px) scale(0.9);
-filter: blur(1px);
+  0% {
+    opacity: 0.25;
+    transform: translateY(0px) scale(0.9);
+    filter: blur(1px);
+  }
+  20% {
+    opacity: 1;
+    transform: translateY(-6px) scale(1.35);
+    filter: blur(0px);
+  }
+  40% {
+    opacity: 0.4;
+    transform: translateY(2px) scale(1.1);
+    filter: blur(1px);
+  }
+  60% {
+    opacity: 0.95;
+    transform: translateY(-4px) scale(1.28);
+    filter: blur(0px);
+  }
+  80% {
+    opacity: 0.3;
+    transform: translateY(1px) scale(0.95);
+    filter: blur(1px);
+  }
+  100% {
+    opacity: 0.25;
+    transform: translateY(0px) scale(0.9);
+    filter: blur(1px);
+  }
 }
-20% {
-opacity: 1;
-transform: translateY(-6px) scale(1.35);
-filter: blur(0px);
-}
-40% {
-opacity: 0.4;
-transform: translateY(2px) scale(1.1);
-filter: blur(1px);
-}
-60% {
-opacity: 0.95;
-transform: translateY(-4px) scale(1.28);
-filter: blur(0px);
-}
-80% {
-opacity: 0.3;
-transform: translateY(1px) scale(0.95);
-filter: blur(1px);
-}
-100% {
-opacity: 0.25;
-transform: translateY(0px) scale(0.9);
-filter: blur(1px);
-}
-}
-
 
 /* Use for hero sparkles */
 .sparkle-sine-dot {
-animation: sparkleSine 3.2s ease-in-out infinite;
-animation-delay: calc(var(--i) * 0.28s);
+  animation: sparkleSine 3.2s ease-in-out infinite;
+  animation-delay: calc(var(--i) * 0.28s);
+}
+
+
+/* ============================================
+   NEW COMPACT SKILL GRID DESIGN (Premium + Slim)
+   ============================================ */
+
+#skills {
+  max-width: 420px; /* comfortable, not too wide */
+}
+
+/* Skill wrapper — compact grid, equal height cards */
+.skill-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  gap: 1rem;
+}
+
+/* Slim premium skill card */
+.skill-chip {
+  padding: 0.35rem 0.65rem !important;
+  border-radius: 0.9rem;
+  background: rgba(255,255,255,0.1);
+  border: 1px solid rgba(255,255,255,0.08);
+  text-align: center;
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: var(--text-light);
+  box-shadow: 0 6px 18px rgba(0,0,0,0.06);
+  backdrop-filter: blur(10px);
+  transition: transform .18s ease, box-shadow .18s ease;
+}
+
+.skill-chip:hover {
+  transform: translateY(-4px) scale(1.03);
+  box-shadow: 0 12px 32px rgba(124,58,237,0.22);
+  border-color: rgba(236,72,153,0.45);
+}
+
+/* Dark mode skill chip */
+.dark .skill-chip {
+  background: rgba(255,255,255,0.05);
+  color: #ffffff;
+  border: 1px solid rgba(255,255,255,0.08);
+  box-shadow: 0 6px 24px rgba(236,72,153,0.12);
+}
+
+.dark .skill-chip:hover {
+  border-color: rgba(236,72,153,0.65);
+  box-shadow: 0 16px 40px rgba(236,72,153,0.22);
+  transform: translateY(-4px) scale(1.05);
+}
+
+/* Skill category heading — slim, elegant */
+.skill-category {
+  font-weight: 700;
+  font-size: 1rem;
+  margin-bottom: .4rem;
+  background: linear-gradient(90deg, var(--accent), var(--accent-2));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.container {
+  max-width: 1450px !important; /* was 1120px */
+}
+
+/* EXPERIENCE — New Tech Chip Design */
+.exp-tech-chip {
+display: inline-flex;
+align-items: center;
+padding: 0.4rem 0.75rem;
+font-size: 0.78rem;
+font-weight: 600;
+border-radius: 0.7rem;
+background: rgba(124,58,237,0.14);
+color: #4c1d95;
+border: 1px solid rgba(124,58,237,0.28);
+box-shadow: 0 4px 14px rgba(124,58,237,0.15);
+transition: all .22s ease;
+margin: 0.25rem;
+}
+.exp-tech-chip:hover {
+background: linear-gradient(90deg, var(--accent), var(--accent-2));
+color: #ffffff;
+transform: translateY(-3px) scale(1.03);
+box-shadow: 0 10px 28px rgba(124,58,237,0.28);
+}
+.dark .exp-tech-chip {
+background: rgba(255,255,255,0.08);
+color: #ffffff;
+border: 1px solid rgba(255,255,255,0.12);
+box-shadow: 0 6px 22px rgba(236,72,153,0.18);
+}
+.dark .exp-tech-chip:hover {
+background: linear-gradient(90deg, var(--accent), var(--accent-2));
+color: #ffffff;
+transform: translateY(-3px) scale(1.05);
+box-shadow: 0 16px 38px rgba(236,72,153,0.32);
+}
+
+.exp-tech-aura {
+  display:inline-block;
+  padding:0.35rem 0.8rem;
+  border-radius:0.8rem;
+  background: rgba(255,255,255,0.12);
+  color:#fff;
+  border:1px solid rgba(255,255,255,0.18);
+  font-size:0.75rem;
+  font-weight:600;
+  backdrop-filter: blur(12px);
+  transition: transform .18s ease, border-color .18s ease;
+}
+
+.exp-tech-aura:hover {
+  transform: translateY(-3px);
+  border-color: rgba(236,72,153,0.65);
 }
