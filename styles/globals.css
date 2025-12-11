@@ -120,6 +120,11 @@ html, body, #__next {
   display: block;
 }
 
+.hero-wrapper {
+  width: 100%;
+  overflow: visible;
+}
+
 /* border animation subtle */
 @keyframes borderFlow {
   0% { background-position: 0% 50%; }
@@ -131,7 +136,7 @@ html, body, #__next {
    BUTTONS (primary / outline)
    --------------------------- */
 .btn-premium {
-  @apply inline-flex items-center gap-3 px-5 py-3 rounded-xl font-semibold text-white;
+  @apply inline-flex items-center gap-3 px-4 py-3 rounded-xl text-sm text-white;
   background: linear-gradient(90deg, var(--accent), var(--accent-2));
   box-shadow: 0 10px 30px rgba(124,58,237,0.14);
   transition: transform .18s ease, box-shadow .18s ease;
@@ -139,7 +144,7 @@ html, body, #__next {
 .btn-premium:hover { transform: translateY(-3px); box-shadow: 0 20px 60px rgba(124,58,237,0.18); }
 
 .btn-premium-outline {
-  @apply inline-flex items-center gap-3 px-5 py-3 rounded-xl font-semibold border;
+  @apply inline-flex items-center gap-3 px-5 py-3 rounded-xl text-sm border;
   border-color: rgba(124,58,237,0.12);
   color: var(--accent);
   background: rgba(255,255,255,0.02);
@@ -253,6 +258,12 @@ html, body, #__next {
   border-radius: 6px;
   background: linear-gradient(180deg, var(--accent), var(--accent-2));
   opacity: .95;
+}
+
+.skills-fixed-wrapper {
+  position: sticky;
+  top: 120px;
+  padding-right: 10px;
 }
 
 /* ---------------------------
@@ -511,9 +522,19 @@ color: #ffffff !important;
 /* NAVBAR + HERO PREMIUM UPDATE */
 
 .hero-content {
-max-width: 1520px !important; /* increase from ~550px → wider hero description */
-width: 100%;
+  max-width: 900px !important; /* Was small earlier */
+  font-size: 1.25rem !important;
+  line-height: 1.9rem !important;
 }
+
+.hero-column {
+  max-width: 100%;
+}
+
+#hero {
+  margin-bottom: 30px !important;
+}
+
 
 /* Navbar soft-gray text in dark mode */
 .nav-premium { color: var(--text-light); font-weight: 600; transition: color .25s ease; }
@@ -525,10 +546,11 @@ width: 100%;
 
 /* Hero description glow */
 .hero-description {
-  font-size: 1.15rem;
-  line-height: 1.75rem;
-  color: #334155 !important;
-  text-shadow: 0 0 12px rgba(168,85,247,0.35), 0 0 22px rgba(236,72,153,0.25);
+  display: -webkit-box;
+  -webkit-line-clamp: 2;      /* force exactly 2 lines */
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  max-width: 680px;           /* adjust width to tune wrapping */
 }
 .dark .hero-description {
   color: #f3eaff !important;
@@ -651,6 +673,10 @@ width: 100%;
   animation: neonPulse 6s ease-in-out infinite;
 }
 
+#summary {
+  margin-top: 40px;
+}
+
 @keyframes neonPulse {
   0% { opacity: 0.55; filter: blur(70px); transform: scale(1); }
   50% { opacity: 0.95; filter: blur(95px); transform: scale(1.07); }
@@ -721,9 +747,8 @@ width: 100%;
 /* ============================================
    NEW COMPACT SKILL GRID DESIGN (Premium + Slim)
    ============================================ */
-
 #skills {
-  max-width: 420px; /* comfortable, not too wide */
+  width: 100%;
 }
 
 /* Skill wrapper — compact grid, equal height cards */
@@ -734,6 +759,7 @@ width: 100%;
 }
 
 /* Slim premium skill card */
+/* Skill chip base styles */
 .skill-chip {
   padding: 0.35rem 0.65rem !important;
   border-radius: 0.9rem;
@@ -742,10 +768,23 @@ width: 100%;
   text-align: center;
   font-size: 0.72rem;
   font-weight: 600;
-  color: var(--text-light);
+  color: #000000 !important;   /* 🔥 force BLACK text in light mode */
   box-shadow: 0 6px 18px rgba(0,0,0,0.06);
   backdrop-filter: blur(10px);
   transition: transform .18s ease, box-shadow .18s ease;
+}
+
+/* Dark mode override */
+.dark .skill-chip {
+  background: rgba(255,255,255,0.05);
+  color: #ffffff !important;   /* 🔥 force WHITE text in dark mode */
+  border: 1px solid rgba(255,255,255,0.12);
+  box-shadow: 0 6px 24px rgba(236,72,153,0.12);
+}
+
+
+html:not(.dark) .skill-chip {
+  color: #000 !important;
 }
 
 .skill-chip:hover {
@@ -778,8 +817,49 @@ width: 100%;
   -webkit-text-fill-color: transparent;
 }
 
+.skill-column-box {
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 1rem;
+  padding: 1.2rem;
+  min-height: 260px;   /* 👈 this creates uniform height */
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+
+/* Uniform Skill Category Card */
+.skill-card-uniform {
+  background: rgba(255,255,255,0.55);
+  border: 1px solid rgba(15,23,42,0.06);
+  border-radius: 1rem;
+  padding: 1.2rem;
+  min-height: 260px;        /* 🔥 Equal height for all 3 columns */
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+  backdrop-filter: blur(10px);
+  transition: transform .2s ease, box-shadow .2s ease;
+}
+
+.skill-card-uniform:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 60px rgba(124,58,237,0.18);
+  border-color: rgba(124,58,237,0.35);
+}
+
+/* Dark mode */
+.dark .skill-card-uniform {
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.08);
+  box-shadow: 0 10px 30px rgba(236,72,153,0.18);
+}
+
+
 .container {
-  max-width: 1450px !important; /* was 1120px */
+  max-width: 1400px !important; /* was 1120px */
 }
 
 /* EXPERIENCE — New Tech Chip Design */
@@ -832,4 +912,83 @@ box-shadow: 0 16px 38px rgba(236,72,153,0.32);
 .exp-tech-aura:hover {
   transform: translateY(-3px);
   border-color: rgba(236,72,153,0.65);
+}
+
+/* Right Skill Panel Scroll Customization */
+.custom-scroll::-webkit-scrollbar {
+  width: 6px;
+}
+.custom-scroll::-webkit-scrollbar-thumb {
+  background: rgba(124,58,237,0.45);
+  border-radius: 10px;
+}
+.custom-scroll::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+/* ---------------------------------------
+   FINAL SKILL CHIP COLOR FIX (highest priority)
+---------------------------------------- */
+
+/* Light mode → Black text */
+html:not(.dark) .skill-chip {
+  color: #000000 !important;
+  background: rgba(255,255,255,0.85) !important;
+  border: 1px solid rgba(0,0,0,0.08) !important;
+}
+
+/* Dark mode → White text */
+.dark .skill-chip {
+  color: #ffffff !important;
+  background: rgba(255,255,255,0.06) !important;
+  border: 1px solid rgba(255,255,255,0.12) !important;
+}
+
+/* BASE - Light mode text (black / dark) */
+.skill-text {
+  color: #0f172a !important;
+  font-weight: 600;
+}
+
+/* DARK MODE */
+.dark .skill-text {
+  color: #e5e7eb !important;   /* light gray-white */
+}
+
+/* --- FORCE SKILL CHIP TEXT COLOR (HIGHEST PRIORITY) --- */
+
+/* Light mode */
+html:not(.dark) .skill-chip {
+  color: #000000 !important;        /* PURE BLACK */
+}
+
+/* Dark mode */
+html.dark .skill-chip {
+  color: #ffffff !important;        /* PURE WHITE */
+}
+
+/* Awards glass card */
+.award-card {
+  background: rgba(255, 255, 255, 0.15);
+  border: 1px solid rgba(255,255,255,0.12);
+  box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+  backdrop-filter: blur(12px);
+  border-radius: 1rem;
+  transition: transform .18s ease, box-shadow .18s ease;
+}
+
+.award-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 35px rgba(236, 72, 153, 0.25);
+  border-color: rgba(236,72,153,0.4);
+}
+
+.dark .award-card {
+  background: rgba(255,255,255,0.06);
+  border-color: rgba(255,255,255,0.08);
+}
+
+.dark .award-card:hover {
+  border-color: rgba(236,72,153,0.6);
+  box-shadow: 0 12px 35px rgba(236,72,153,0.28);
 }

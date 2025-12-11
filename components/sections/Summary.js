@@ -22,14 +22,7 @@ export default function Summary() {
         <aside className="space-y-6">
           <div className="bg-glass p-6 rounded-xl">
             <h3 className="font-semibold mb-2">Education</h3>
-            <p className="text-sm text-gray-700 dark:text-gray-300">B.Tech / Computer Science — Institute Name (Year)</p>
-            <p className="text-sm text-gray-700 dark:text-gray-300 mt-2">Certifications: (e.g., ISTQB, AWS Foundational)</p>
-          </div>
-
-          <div className="bg-glass p-6 rounded-xl">
-            <h3 className="font-semibold mb-2">Contact</h3>
-            <p className="text-sm text-gray-700 dark:text-gray-300">Email: pritishpanda@yahoo.com</p>
-            <p className="text-sm text-gray-700 dark:text-gray-300">Location: Bangalore, India</p>
+            <p className="text-sm text-gray-700 dark:text-gray-300">B.Tech / Computer Science — Biju Patnaik University of Technology (2008-2012)</p>
           </div>
         </aside>
       </div>

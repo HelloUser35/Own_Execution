@@ -2,19 +2,55 @@
 export const CONTACT = {
   phone: "+91-7002200318 / +91-9859018024",
   email: "pritishpanda@yahoo.com",
-  location: "Bangalore, India",
+  location: "HN65, Aagraham, EarlyBird Layout, Mullur Road, Kodathi, Bangalore, India, 560035",
   linkedin: "https://www.linkedin.com/in/pritish-panda-12328588",
   github: "https://github.com/HelloUser35/Own_Execution",
 };
 
 export const SKILLS = [
-  { title: "Languages & Scripts", items: ["Java", "Python", "Groovy", "Shell", "HTML", "JSON", "XML"] },
-  { title: "Automation / Frameworks", items: ["Selenium", "Robot Framework", "BDD", "TestNG", "JMeter", "REST API"] },
-  { title: "DevOps & CI/CD", items: ["Jenkins", "Git", "Gerrit", "Maven"] },
-  { title: "Big Data", items: ["Hadoop", "Hive", "Spark", "SQL"] },
-  { title: "OS & Platforms", items: ["Windows", "Linux (RHEL/SLES)", "VMware"] },
-  { title: "Tools", items: ["Postman", "SoapUI", "PyCharm", "Eclipse", "Putty", "WinSCP"] },
+  {
+    title: "Languages & Scripts",
+    items: ["Java", "Python", "Groovy", "Shell", "HTML", "JSON", "XML", "REST API"]
+  },
+  {
+    title: "Frameworks",
+    items: ["Selenium", "Robot Framework", "BDD", "TestNG", "Next.js"]
+  },
+  {
+    title: "IDEs",
+    items: ["Eclipse", "PyCharm", "Spyder"]
+  },
+  {
+    title: "Utilities & Libraries",
+    items: ["Request Library", "Paramiko", "Pypsexec", "FTP"]
+  },
+  {
+    title: "Testing Tools",
+    items: ["JMeter", "SoapUI", "Postman", "WinSCP", "PuTTY"]
+  },
+  {
+    title: "DevOps & CI/CD",
+    items: ["Jenkins", "Git", "Gerrit", "Maven", "Log4J", "Apache POI"]
+  },
+  {
+    title: "Big Data & Databases",
+    items: ["Hadoop", "Hive", "Spark", "SQL", "MongoDB"]
+  },
+  {
+    title: "Operating Systems",
+    items: ["Windows", "RHEL (Linux)", "SLES (Linux)", "VMware"]
+  },
+  {
+    title: "Manual Testing",
+    items: ["SDLC/STLC", "Peer", "Sanity", "Smoke", "Regression", "Bug Lifecycle", "Cross-Browser"]
+  },
+  {
+    title: "Agile Practices",
+    items: ["Sprint Planning", "Story Points", "Stand-ups", "Scrum", "Retrospectives"]
+  }
 ];
+
+
 
 export const EXPERIENCE = [
   {

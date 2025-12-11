@@ -7,6 +7,15 @@ export default function Navbar() {
   const { theme, toggleTheme } = useTheme();
   const [open, setOpen] = useState(false);
 
+    const handleAnchor = (e, id) => {
+    e.preventDefault();
+    const el = document.getElementById(id);
+    if (!el) return;
+    el.scrollIntoView({ behavior: "smooth", block: "start" });
+    // optional: adjust for sticky nav by scrolling up a few px
+    window.scrollBy(0, -12);
+  };
+
   return (
     <>
       <nav className="fixed top-4 left-1/2 -translate-x-1/2 z-50 w-[94%] md:w-[80%]">
@@ -26,7 +35,7 @@ export default function Navbar() {
           <div className="hidden md:flex items-center gap-6 text-sm font-semibold">
             <Link href="#hero" className="nav-premium">Home</Link>
             <Link href="#summary" className="nav-premium">Summary</Link>
-            <Link href="#skills" className="nav-premium">Skills</Link>
+            <Link href="#skills" className="nav-premium" onClick={(e)=>handleAnchor(e,'skills')}>Skills</Link>
             <Link href="#experience" className="nav-premium">Experience</Link>
             {/* <Link href="#projects" className="nav-premium">Projects</Link> */}
             <Link href="#contact" className="nav-premium">Contact</Link>
