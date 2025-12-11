@@ -751,6 +751,18 @@ color: #ffffff !important;
   width: 100%;
 }
 
+/* 🎨 Apply same Premium Gradient as Hero headings */
+#skills-heading {
+  background: linear-gradient(90deg, var(--accent), var(--accent-2));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;      /* for firefox */
+  color: transparent !important;
+  display: inline-block;      /* REQUIRED for gradient text */
+  font-weight: 800 !important;
+}
+
+
 /* Skill wrapper — compact grid, equal height cards */
 .skill-grid {
   display: grid;
@@ -946,7 +958,7 @@ html:not(.dark) .skill-chip {
 
 /* BASE - Light mode text (black / dark) */
 .skill-text {
-  color: #0f172a !important;
+  color:  #334155 !important;
   font-weight: 600;
 }
 

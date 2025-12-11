@@ -24,8 +24,8 @@ export default function Home() {
 
     
     {/* RIGHT FIXED SKILL SIDEBAR */}
-    <aside className="sticky top-28 max-h-[78vh] overflow-y-auto pr-2 custom-scroll">
-      <h2 className="section-title">Skills</h2>
+    <aside id="skills" className="sticky top-28 max-h-[78vh] overflow-y-auto pr-2 custom-scroll">
+      <h2 id="skills-heading" className="section-title">Skills</h2>
 
       <div className="space-y-6">
         {SKILLS.map((c, i) => (
