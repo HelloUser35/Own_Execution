@@ -83,7 +83,7 @@ export default function Navbar() {
           <Link href="#experience" className="menu-link" onClick={() => setOpen(false)}>Experience</Link>
           <Link href="#projects" className="menu-link" onClick={() => setOpen(false)}>Projects</Link>
           <Link href="#contact" className="menu-link" onClick={() => setOpen(false)}>Contact</Link>
-          <a href="/cv/Pritish_CV.docx" download className="block px-4 py-2 rounded-lg bg-gradient-to-r from-[#7c3aed] to-[#ec4899] text-white text-center">Download CV</a>
+          <a href="/cv/PritishPanda_CV.pdf" download className="block px-4 py-2 rounded-lg bg-gradient-to-r from-[#7c3aed] to-[#ec4899] text-white text-center">Download CV</a>
         </div>
       )}
     </>
