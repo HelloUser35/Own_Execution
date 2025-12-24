@@ -41,7 +41,7 @@ export default function Navbar() {
             <Link href="#contact" className="nav-premium">Contact</Link>
 
             <a
-              href="/cv/Pritish_CV.docx"
+              href="/cv/PritishPanda_CV.pdf"
               download
               className="px-4 py-2 rounded-lg font-semibold text-white bg-gradient-to-r from-[#7c3aed] to-[#ec4899] shadow-md hover:shadow-xl transition-all"
             >
